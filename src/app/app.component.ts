@@ -14,11 +14,12 @@ export interface User {
   standalone: true,
   imports: [RouterOutlet, InputTransformComponent, InputTransformComponent],
   template: `
-    <app-input-transform [userAge]="userDatasList[0].age"/>
+    <app-input-transform [userAge]="userDatasList[0].age" [showUserAge]="showUserAge"/>
   `,
   styleUrls: []
 })
 export class AppComponent {
+  showUserAge = "true"
   renderBlock = false;
   title = 'learningAngular17';
 
