@@ -4,7 +4,7 @@ import { InputTransformComponent } from "./components/input-transform.componet";
 
 export interface User {
   name: string,
-  age: number,
+  age: string,
   profession: string,
   id: string
 }
@@ -14,7 +14,7 @@ export interface User {
   standalone: true,
   imports: [RouterOutlet, InputTransformComponent, InputTransformComponent],
   template: `
-    <app-input-transform [user]="userDatasList[0]"/>
+    <app-input-transform [userAge]="userDatasList[0].age"/>
   `,
   styleUrls: []
 })
@@ -23,9 +23,9 @@ export class AppComponent {
   title = 'learningAngular17';
 
   userDatasList: Array<User> = [
-    { age: 20, name: 'Marcos', profession: 'Software Developer', id: '123'},
-    { age: 30, name: 'Marcelo', profession: 'Software Developer', id: '456'},
-    { age: 40, name: 'Carlos', profession: 'Scrum Master', id: '789'},
-    { age: 30, name: 'Maria', profession: 'UX Designer', id: '123'},
+    { age: '20', name: 'Marcos', profession: 'Software Developer', id: '123'},
+    { age: '30', name: 'Marcelo', profession: 'Software Developer', id: '456'},
+    { age: '40', name: 'Carlos', profession: 'Scrum Master', id: '789'},
+    { age: '30', name: 'Maria', profession: 'UX Designer', id: '123'},
   ]
 }

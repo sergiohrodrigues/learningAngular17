@@ -1,22 +1,16 @@
-import { Component, Input } from "@angular/core";
-import { User } from "../app.component";
-
-function setUserNameTransform(user: User): User {
-  return {
-    ...user,
-    name: user.name.toUpperCase()
-  }
-}
+import { Component, Input, numberAttribute, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-input-transform',
   standalone: true,
   template: `
-    <h2>User: {{ user.name }}</h2>
-    <h2>Idade: {{ user.age }}</h2>
-    <h2>Profissão: {{ user.profession }}</h2>
+    <h2>Idade: {{ userAge }}</h2>
   `
 })
-export class InputTransformComponent {
-  @Input({ required: true, transform: setUserNameTransform }) public user!: User;
+export class InputTransformComponent implements OnInit {
+  @Input({ required: true, transform: numberAttribute }) public userAge!: number;
+
+  ngOnInit(): void {
+    console.log(typeof(this.userAge))
+  }
 }
